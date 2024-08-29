@@ -7,6 +7,21 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const routes_1 = __importDefault(require("./routes"));
 const morgan_1 = __importDefault(require("morgan"));
+const sequelize_1 = require("sequelize");
+const sequelize = new sequelize_1.Sequelize(process.env.DATABASE_URL || '', {
+    dialect: 'postgres',
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false
+        }
+    },
+    logging: false // Cambia a true si quieres ver las consultas SQL en la consola
+});
+// Prueba la conexión a la base de datos
+sequelize.authenticate()
+    .then(() => console.log('Conexión a la base de datos establecida con éxito.'))
+    .catch(err => console.error('No se pudo conectar a la base de datos:', err));
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
