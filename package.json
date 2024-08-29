@@ -1,8 +1,8 @@
 {
   "name": "back",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Backend para HenryShop",
+  "main": "dist/index.js",
   "scripts": {
     "start": "node dist/index.js",
     "dev": "nodemon --exec ts-node src/index.ts",
@@ -34,6 +34,10 @@
     "@types/swagger-ui-express": "^4.1.6",
     "morgan": "^1.10.0",
     "nodemon": "^3.1.0",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": "20.11.1"
   }
 }
